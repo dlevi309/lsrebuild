@@ -1,0 +1,9 @@
+Package: daniel.lsrebuild
+Name: lsrebuild
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: Tool to rebuild iOS's LaunchService.csstore cache
+Maintainer: daniel
+Author: daniel
+Section: System
+Tag: role::hacker
