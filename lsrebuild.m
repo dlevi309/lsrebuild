@@ -12,25 +12,17 @@
 -(NSURL*)resourcesDirectoryURL;
 @end
 
-@interface LSDocumentProxy : LSResourceProxy
-+(LSDocumentProxy*)documentProxyForName:(NSString*)name type:(NSString*)type MIMEType:(NSString*)MIMEType;
--(NSString*)name;
--(NSString*)MIMEType;
--(NSString*)typeIdentifier;
-@end
-
 @interface LSOpenOperation : NSOperation
 @end
 
 @interface LSApplicationWorkspace : NSObject
-+(LSApplicationWorkspace*)defaultWorkspace;
--(NSArray*)applicationsAvailableForHandlingURLScheme:(NSString*)scheme;
--(NSArray*)applicationsAvailableForOpeningDocument:(LSDocumentProxy*)dproxy;
--(LSOpenOperation*)operationToOpenResource:(NSURL*)URL usingApplication:(NSString*)identifier uniqueDocumentIdentifier:(NSString*)document userInfo:(NSDictionary*)userInfo delegate:(id)delegate;
++ (LSApplicationWorkspace*)defaultWorkspace;
+- (NSArray*)applicationsAvailableForHandlingURLScheme:(NSString*)scheme;
+- (LSOpenOperation*)operationToOpenResource:(NSURL*)URL usingApplication:(NSString*)identifier uniqueDocumentIdentifier:(NSString*)document userInfo:(NSDictionary*)userInfo delegate:(id)delegate;
 @end
 
 @interface LSApplicationWorkspace (LSPrivate)
--(BOOL)_LSPrivateRebuildApplicationDatabasesForSystemApps:(BOOL)system internal:(BOOL)internal user:(BOOL)user;
+- (BOOL)_LSPrivateRebuildApplicationDatabasesForSystemApps:(BOOL)arg1 internal:(BOOL)arg2 user:(BOOL)arg3 ;
 @end
 
 int main(int argc, char** argv) {
