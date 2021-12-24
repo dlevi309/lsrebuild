@@ -19,5 +19,15 @@
 	<true/>
 	<key>com.apple.private.coreservices.canresetserverstore</key>
 	<true/>
+	<key>com.apple.private.skip-library-validation</key>
+	<true/>
+	<key>com.apple.security.exception.mach-lookup.global-name</key>
+	<array>
+		<string>com.apple.lsd.mapdb</string>
+		<string>com.apple.lsd.modifydb</string>
+		<string>com.apple.lsd.xpc</string>
+	</array>
+	<key>platform-application</key>
+	<true/>
 </dict>
 </plist>
