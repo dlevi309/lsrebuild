@@ -1,14 +1,12 @@
-export ARCHS = arm64
+CC = cc
+TARGET = lsrebuild
+SRC = lsrebuild.m
+FLAGS = -Wall -O3 $(CFLAGS)
+CFLAGS = -fobjc-arc -framework Foundation -framework MobileCoreServices
+SIGN   := ldid -Sent.xml
 
-include $(THEOS)/makefiles/common.mk
+all: $(TARGET)
 
-TOOL_NAME = lsrebuild
-
-lsrebuild_FILES = lsrebuild.m
-lsrebuild_CFLAGS = -fno-objc-arc
-lsrebuild_FRAMEWORKS = MobileCoreServices
-lsrebuild_PRIVATE_FRAMEWORKS = SpringBoardServices
-lsrebuild_CODESIGN_FLAGS = -Sent.xml
-lsrebuild_INSTALL_PATH = /usr/local/bin
-
-include $(THEOS_MAKE_PATH)/tool.mk
+$(TARGET): $(SRC)
+	$(CC) -o $(TARGET) $(FLAGS) $(SRC)
+	$(SIGN) $(TARGET)

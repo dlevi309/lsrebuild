@@ -1,28 +1,13 @@
 #import <Foundation/Foundation.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 
-@interface LSResourceProxy : NSObject
-@property(assign) NSString* localizedName;
-- (NSData*)iconDataForVariant:(NSInteger)format;
-@end
-
-@interface LSApplicationProxy : LSResourceProxy
-+ (LSApplicationProxy*)applicationProxyForIdentifier:(id)identifier;
-- (NSString*)applicationIdentifier;
-- (NSURL*)containerURL;
-- (NSURL*)resourcesDirectoryURL;
-@end
-
-@interface LSOpenOperation : NSOperation
-@end
-
 @interface LSApplicationWorkspace : NSObject
 + (LSApplicationWorkspace*)defaultWorkspace;
-- (NSArray*)applicationsAvailableForHandlingURLScheme:(NSString*)scheme;
-- (LSOpenOperation*)operationToOpenResource:(NSURL*)URL usingApplication:(NSString*)identifier uniqueDocumentIdentifier:(NSString*)document userInfo:(NSDictionary*)userInfo delegate:(id)delegate;
+- (NSArray *)applicationsAvailableForHandlingURLScheme:(NSString *)scheme;
 @end
 
 @interface LSApplicationWorkspace (LSPrivate)
+// - (BOOL)_LSPrivateDatabaseNeedsRebuild;
 - (BOOL)_LSPrivateRebuildApplicationDatabasesForSystemApps:(BOOL)arg1 internal:(BOOL)arg2 user:(BOOL)arg3;
 @end
 
